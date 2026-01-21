@@ -10,11 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
     "@tailwindcss/vite": "^4.1.18",
+    "akar-icons": "^1.9.31",
+    "framer-motion": "^12.28.1",
+    "mdi-react": "^9.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icon": "^1.0.0",
+    "react-icons": "^5.5.0",
+    "react-swiper": "^0.1.5",
     "swiper": "^12.0.3",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "toaster": "^0.1.2",
+    "zustand": "^5.0.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
