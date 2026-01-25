@@ -253,8 +253,8 @@ function OurProducts() {
                 }}
               >
                 <Button
-                  onClick={(el) => {
-                    el.stopPropagation()
+                  onClick={(e) => {
+                    e.stopPropagation()
                     const store = useCartStore.getState()
                     const wasInCart = store.cart.some((item) => item.id === product.id)
                     useCartStore.getState().addToCart({
@@ -276,8 +276,8 @@ function OurProducts() {
                 </Button>
                 <div className="flex flex-col gap-2 items-center pt-6 lg:flex-row lg:gap-5">
                   <button
-                    onClick={(el) => {
-                      el.stopPropagation()
+                    onClick={(e) => {
+                      e.stopPropagation()
                     }}
                     className="flex text-sm text-white items-center md:text-base"
                   >
@@ -294,8 +294,8 @@ function OurProducts() {
                     Compare
                   </button>
                   <button
-                    onClick={(el) => {
-                      el.stopPropagation()
+                    onClick={(e) => {
+                      e.stopPropagation()
                       const favStore = useFavoritesStore.getState()
                       const isAlreadyFav = favStore.isFavorite(product.id)
                       useFavoritesStore.getState().toggleFavorite({

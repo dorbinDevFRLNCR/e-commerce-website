@@ -1,4 +1,7 @@
+/*TODO Make Button component */
+
 import HeroBackground from '../../assets/image/hero-back.png'
+import Button from '../button/button'
 import { motion } from 'framer-motion'
 
 function Hero() {

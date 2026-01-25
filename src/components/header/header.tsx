@@ -65,7 +65,7 @@ function Header() {
         animate="show"
         className="w-full max-w-sm px-4 mx-auto flex justify-between items-center md:max-w-7xl"
       >
-        <motion.div className="" variants={itemVariants}>
+        <motion.div variants={itemVariants}>
           <img className="h-8 md:h-12 w-auto block" src={HeaderLogo} alt="Header Logo" />
         </motion.div>
 
@@ -121,7 +121,7 @@ function Header() {
           >
             <ShoppingCartOutlined size={28} />
             {cartItemsCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+              <span className="absolute -top-0 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
                 {cartItemsCount}
               </span>
             )}

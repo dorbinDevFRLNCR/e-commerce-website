@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
+import Button from '../button/button'
 import ImgOne from '../../assets/image/room-one.jpg'
 import ImgTwo from '../../assets/image/room-two.jpg'
 import ImgThree from '../../assets/image/room-three.jpg'
@@ -55,7 +56,7 @@ function Inspirations() {
           className="my-swiper !max-w-[404px]"
         >
           {sliderContent.map((slide) => (
-            <SwiperSlide className="" key={slide.id}>
+            <SwiperSlide key={slide.id}>
               <div className="group relative overflow-hidden rounded-2xl">
                 <div>
                   <img

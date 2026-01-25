@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <Hero />
-      <main className="max-w-2xl mx-auto">
+      <main className="max-w-7xl mx-auto">
         <OurProducts />
         <Inspirations />
         <Gallery />
