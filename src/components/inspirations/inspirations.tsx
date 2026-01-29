@@ -53,7 +53,7 @@ function Inspirations() {
           navigation
           pagination={{ clickable: true }}
           loop={true}
-          className="my-swiper !max-w-[404px]"
+          className="my-swiper w-full md:w-2/3"
         >
           {sliderContent.map((slide) => (
             <SwiperSlide key={slide.id}>
