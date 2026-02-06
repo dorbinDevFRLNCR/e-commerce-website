@@ -10,6 +10,7 @@ import { CartModal } from '../cart/cart'
 import { motion, type Variants } from 'framer-motion'
 import { AnimatePresence } from 'framer-motion'
 import { FiMenu } from 'react-icons/fi'
+import { IoClose } from 'react-icons/io5'
 
 function Header() {
   const cartItemsCount = useCartStore((state) => state.getTotalItems())
@@ -167,6 +168,55 @@ function Header() {
               </div>
             </motion.div>
           )}
+
+          <AnimatePresence>
+            {isOptionsOpen && (
+              <div className="fixed inset-0 z-40 lg:hidden">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-black/50"
+                  onClick={() => setIsOptionsOpen(false)}
+                />
+
+                <motion.div
+                  initial={{ x: '100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '100%' }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  className="absolute right-0 top-0 h-full w-[280px] bg-white shadow-2xl"
+                >
+                  <div className="flex justify-between items-center p-6 border-b border-gray-200">
+                    <h3 className="text-xl font-semibold text-gray-800">Menu</h3>
+                    <button
+                      onClick={() => setIsOptionsOpen(false)}
+                      className="text-gray-500 hover:text-gray-700 transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <IoClose size={28} />
+                    </button>
+                  </div>
+
+                  <nav className="p-6">
+                    <ul className="space-y-6">
+                      {['Home', 'Shop', 'About', 'Contact'].map((item) => (
+                        <li key={item}>
+                          <a
+                            href="/"
+                            className="text-lg font-medium text-gray-800 hover:text-amber-600 transition-colors duration-200 block"
+                            onClick={() => setIsOptionsOpen(false)}
+                          >
+                            {item}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
 
           <AnimatePresence>
             {isMenuOpen && <CartModal isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />}

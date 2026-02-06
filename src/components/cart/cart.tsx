@@ -32,20 +32,22 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
   return (
     <div className="fixed inset-0 z-40">
       <div className="absolute inset-0 bg-black/50" onClick={onClose} />
-      <div className="absolute right-0 top-0 min-w-md bg-white rounded-md shadow-lg z-50 max-h-3xl overflow-hidden">
+      <div className="absolute right-0 top-0 bg-white rounded-md shadow-lg z-50 max-h-3xl overflow-hidden lg:min-w-md w-full">
         <div className="flex justify-between items-center py-7 px-7 border-b border-gray-200">
-          <h3 className="text-2xl font-semibold">Shopping Cart</h3>
+          <h3 className="text-base font-semibold md:text-2xl">Shopping Cart</h3>
           <button
             onClick={onClose}
-            className="text-2xl font-bold text-gray-500 hover:text-gray-700"
+            className="text-base font-bold text-gray-500 hover:text-gray-700 md:text-2xl"
             aria-label="Close shopping cart"
           >
             <BsCartX />
           </button>
         </div>
-        <div className="max-h-[60vh] overflow-y-auto">
+        <div className="max-h-[80vh] overflow-y-auto sm:max-h-[60vh]">
           {cart.length === 0 ? (
-            <p className="text-gray-500 text-center py-8">Your cart is empty.</p>
+            <p className="text-base text-gray-500 text-center py-8 md:text-3xl">
+              Your cart is empty.
+            </p>
           ) : (
             cart.map((item) => (
               <div key={item.id} className="flex justify-between items-center py-3 px-7">
@@ -62,9 +64,11 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
                       <p className="text-base">{item.name}</p>
                     </div>
                     <div className="flex gap-4 items-center">
-                      <p className="uppercase">{item.quantity}</p>
-                      <p className="uppercase">x</p>
-                      <p className="text-orange-400 font-medium">{item.price}</p>
+                      <p className="uppercase text-base md:text-3xl">{item.quantity}</p>
+                      <p className="uppercase text-base md:text-3xl">x</p>
+                      <p className="text-orange-400 font-medium text-base md:text-3xl">
+                        {item.price}
+                      </p>
                     </div>
                   </div>
                   <button
@@ -80,15 +84,19 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
           )}
           <div className="sticky bottom-0 h-auto bg-white w-full">
             {cart.length > 0 && (
-              <div className="flex justify-between max-w-3xs items-center py-4 px-7">
+              <div className="flex justify-between max-w-3xs items-center py-4 px-7 text-base md:text-3xl">
                 <p>Subtotal</p>
                 <span className="text-orange-400 font-semibold">{formatPrice(totalPrice)}</span>
               </div>
             )}
             {cart.length > 0 && (
-              <div className="flex justify-between items-center gap-4 py-4 px-7">
+              <div className="flex flex-col py-4 px-7 md:flex-row justify-between items-center gap-4">
                 {buttonsName.map((name) => (
-                  <Button key={name} variant="cart" className="py-[6px] px-8">
+                  <Button
+                    key={name}
+                    variant="tertiary"
+                    className="w-full text-base px-2 md:text-3xl py-[6px] px-8"
+                  >
                     {name}
                   </Button>
                 ))}

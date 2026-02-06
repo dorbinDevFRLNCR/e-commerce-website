@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+.my-swiper .swiper-button-next,
+.my-swiper .swiper-button-prev {
+  background: white;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.my-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #000;
+}
