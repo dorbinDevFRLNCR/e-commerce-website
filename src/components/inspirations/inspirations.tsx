@@ -53,7 +53,7 @@ function Inspirations() {
           navigation
           pagination={{ clickable: true }}
           loop={true}
-          className="my-swiper w-full md:w-2/3"
+          className="my-swiper w-full max-w-md"
         >
           {sliderContent.map((slide) => (
             <SwiperSlide key={slide.id}>
@@ -68,10 +68,10 @@ function Inspirations() {
                 <div className="absolute bottom-6 left-6 right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-lg font-medium text-gray-600">
+                      <p className="text-base font-medium text-gray-600 md:text-lg">
                         {slide.number} {slide.undertitle}
                       </p>
-                      <h3 className="mt-1 text-2xl font-bold">{slide.title}</h3>
+                      <h3 className="mt-1 text-base font-bold md:text-xl">{slide.title}</h3>
                     </div>
                     <Button
                       variant="primary"

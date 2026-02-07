@@ -3,6 +3,7 @@ import { BsCartX } from 'react-icons/bs'
 import { IoIosCloseCircle } from 'react-icons/io'
 import Button from '../button/button'
 import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 type CartModalProps = {
   isOpen: boolean
@@ -32,7 +33,13 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
   return (
     <div className="fixed inset-0 z-40">
       <div className="absolute inset-0 bg-black/50" onClick={onClose} />
-      <div className="absolute right-0 top-0 bg-white rounded-md shadow-lg z-50 max-h-3xl overflow-hidden lg:min-w-md w-full">
+      <motion.div
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 300, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="absolute w-full right-0 top-0 bg-white rounded-md shadow-lg z-50 max-h-3xl overflow-hidden md:max-w-lg lg:min-w-md"
+      >
         <div className="flex justify-between items-center py-7 px-7 border-b border-gray-200">
           <h3 className="text-base font-semibold md:text-2xl">Shopping Cart</h3>
           <button
@@ -64,11 +71,9 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
                       <p className="text-base">{item.name}</p>
                     </div>
                     <div className="flex gap-4 items-center">
-                      <p className="uppercase text-base md:text-3xl">{item.quantity}</p>
-                      <p className="uppercase text-base md:text-3xl">x</p>
-                      <p className="text-orange-400 font-medium text-base md:text-3xl">
-                        {item.price}
-                      </p>
+                      <p className="uppercase text-base">{item.quantity}</p>
+                      <p className="uppercase text-base">x</p>
+                      <p className="text-orange-400 font-medium text-base">{item.price}</p>
                     </div>
                   </div>
                   <button
@@ -84,7 +89,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
           )}
           <div className="sticky bottom-0 h-auto bg-white w-full">
             {cart.length > 0 && (
-              <div className="flex justify-between max-w-3xs items-center py-4 px-7 text-base md:text-3xl">
+              <div className="flex justify-between max-w-3xs items-center py-4 px-7 text-base">
                 <p>Subtotal</p>
                 <span className="text-orange-400 font-semibold">{formatPrice(totalPrice)}</span>
               </div>
@@ -95,7 +100,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
                   <Button
                     key={name}
                     variant="tertiary"
-                    className="w-full text-base px-2 md:text-3xl py-[6px] px-8"
+                    className="w-full text-base px-2 md:py-[6px] px-8"
                   >
                     {name}
                   </Button>
@@ -104,7 +109,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

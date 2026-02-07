@@ -64,10 +64,10 @@ function Header() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="w-full max-w-sm px-4 mx-auto flex justify-between items-center md:max-w-7xl"
+        className="w-full px-4 mx-auto flex justify-between items-center md:max-w-7xl"
       >
         <motion.div variants={itemVariants}>
-          <img className="h-8 md:h-12 w-auto block" src={HeaderLogo} alt="Header Logo" />
+          <img className="h-8 w-auto block" src={HeaderLogo} alt="Header Logo" />
         </motion.div>
 
         <motion.nav variants={sectionVariants}>
